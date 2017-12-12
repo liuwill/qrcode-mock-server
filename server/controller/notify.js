@@ -32,8 +32,8 @@ exports.callDingTalkApi = (req, res) => {
     })
   }
 
-  const params = apiCaller[method].fields.map(key => { req.params[key] })
-  const responsePromise = dingTalkApi[method].call(dingTalkApi, params)
+  const params = apiCaller[method].fields.map(key => req.query[key])
+  const responsePromise = dingTalkApi[method].apply(dingTalkApi, params)
 
   responsePromise.then(response => {
     res.json({

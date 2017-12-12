@@ -19,13 +19,14 @@ class DingTalkApi {
     }
 
     try {
-      const response = await axios.get('https://oapi.dingtalk.com/sns/gettoken', {
+      let response = await axios.get('https://oapi.dingtalk.com/sns/gettoken', {
         params: {
           appid: DING_TALK_APP_ID,
           appsecret: DING_TALK_APP_SECRET,
         }
       })
 
+      response = response.data
       console.log(response)
       if (response.errcode !== 0) {
         throw new Error(response.errmsg)
@@ -35,13 +36,14 @@ class DingTalkApi {
       this.lastModify = Date.now()
       return response
     } catch (err) {
+      console.log(err.message)
       throw new Error('获取Token失败')
     }
   }
 
   async getPersistentCode(accessToken, tmp_auth_code) {
     try {
-      const response = await axios.post({
+      let response = await axios({
         method: 'post',
         url: `https://oapi.dingtalk.com/sns/get_persistent_code?access_token=${accessToken}`,
         data: {
@@ -49,6 +51,7 @@ class DingTalkApi {
         }
       })
 
+      response = response.data
       console.log(response)
       if (response.errcode === 0) {
         this.openAuthMap[response.openid] = {
@@ -57,13 +60,14 @@ class DingTalkApi {
       }
       return response
     } catch (err) {
+      console.log(err.message)
       throw new Error('获取Persistent Code失败')
     }
   }
 
   async getSnsToken(openid, persistent_code) {
     try {
-      const response = await axios.post({
+      let response = await axios({
         method: 'post',
         url: `https://oapi.dingtalk.com/sns/get_sns_token?access_token=${accessToken}`,
         data: {
@@ -72,6 +76,7 @@ class DingTalkApi {
         }
       })
 
+      response = response.data
       console.log(response)
       if (response.errcode === 0) {
         this.openAuthMap[response.openid] = {
@@ -83,18 +88,20 @@ class DingTalkApi {
 
       return response
     } catch (err) {
+      console.log(err.message)
       throw new Error('获取Persistent Code失败')
     }
   }
 
   async getUserInfo(sns_token) {
     try {
-      const response = await axios.get('https://oapi.dingtalk.com/sns/getuserinfo', {
+      let response = await axios.get('https://oapi.dingtalk.com/sns/getuserinfo', {
         params: {
           sns_token
         }
       })
 
+      response = response.data
       console.log(response)
       if (response.errcode === 0) {
         const userInfo = response.user_info
@@ -105,6 +112,7 @@ class DingTalkApi {
 
       return response
     } catch (err) {
+      console.log(err.message)
       throw new Error('获取Persistent Code失败')
     }
   }
