@@ -10,7 +10,6 @@ app.prepare().then(() => {
   const server = express()
 
   router(server, app)
-
   // // custom route if need
   // server.get('/custom', (req, res) =>
   //   app.render(req, res, '/custom', {
