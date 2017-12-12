@@ -65,11 +65,11 @@ class DingTalkApi {
     }
   }
 
-  async getSnsToken(openid, persistent_code) {
+  async getSnsToken(access_token, openid, persistent_code) {
     try {
       let response = await axios({
         method: 'post',
-        url: `https://oapi.dingtalk.com/sns/get_sns_token?access_token=${accessToken}`,
+        url: `https://oapi.dingtalk.com/sns/get_sns_token?access_token=${access_token}`,
         data: {
           openid,
           persistent_code,

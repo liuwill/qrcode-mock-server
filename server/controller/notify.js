@@ -16,7 +16,7 @@ const apiCaller = {
     fields: ['access_token', 'tmp_auth_code'],
   },
   getSnsToken: {
-    fields: ['openid', 'persistent_code'],
+    fields: ['access_token', 'openid', 'persistent_code'],
   },
   getUserInfo: {
     fields: ['sns_token'],
