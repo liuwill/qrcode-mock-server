@@ -3,7 +3,8 @@ const dingTalkService = require('../service/ding_talk')
 const dingTalkApi = dingTalkService.getDingTalkApi()
 
 exports.notifyDingTalk = (req, res) => {
-  const jsonData = { status: 'json', params: req.params }
+  console.log(req)
+  const jsonData = { status: 'json', params: req.query }
   res.json(jsonData)
 }
 
@@ -23,7 +24,7 @@ const apiCaller = {
 }
 
 exports.callDingTalkApi = (req, res) => {
-  const { method } = req.params
+  const { method } = req.query
   if (!apiCaller[method]) {
     res.json({
       status: false,
