@@ -1,0 +1,40 @@
+{
+  "name": "qrcode-mock-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "deploy": "now -e NODE_ENV=production",
+    "dev": "next",
+    "build": "next build",
+    "start:next": "next start",
+    "server": "NODE_ENV=production node index.js",
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuwill/qrcode-mock-server.git"
+  },
+  "keywords": [
+    "qrcode"
+  ],
+  "author": "liuwill",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liuwill/qrcode-mock-server/issues"
+  },
+  "homepage": "https://github.com/liuwill/qrcode-mock-server#readme",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "express": "^4.16.2",
+    "next": "^4.2.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.3",
+    "jest": "^21.2.1",
+    "standard": "^10.0.3"
+  }
+}
