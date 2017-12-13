@@ -1,6 +1,9 @@
 const dingTalkService = require('../service/ding_talk')
-
 const dingTalkApi = dingTalkService.getDingTalkApi()
+
+const DING_TALK_APP_ID = process.env.DING_TALK_APP_ID
+const DING_TALK_APP_SECRET = process.env.DING_TALK_APP_SECRET
+const SECRET_ENTRY_PASSWORD = process.env.SECRET_ENTRY_PASSWORD
 
 exports.notifyDingTalk = (req, res) => {
   console.log(req)
@@ -10,7 +13,7 @@ exports.notifyDingTalk = (req, res) => {
 
 const apiCaller = {
   getAccessToken: {
-    fields: [],
+    fields: ['appid', 'appsecret'],
   },
   getPersistentCode: {
     fields: ['access_token', 'tmp_auth_code'],
@@ -24,7 +27,7 @@ const apiCaller = {
 }
 
 exports.callDingTalkApi = (req, res) => {
-  const { method } = req.query
+  const { method, secret } = req.query
   if (!apiCaller[method]) {
     res.json({
       status: false,
@@ -33,6 +36,11 @@ exports.callDingTalkApi = (req, res) => {
   }
 
   const params = apiCaller[method].fields.map(key => req.query[key])
+  if (method === 'getAccessToken' && secret === SECRET_ENTRY_PASSWORD ){
+    params['appid'] = DING_TALK_APP_ID
+    params['appsecret'] = DING_TALK_APP_SECRET
+  }
+
   const responsePromise = dingTalkApi[method].apply(dingTalkApi, params)
 
   responsePromise.then(response => {

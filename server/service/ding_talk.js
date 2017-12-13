@@ -1,8 +1,6 @@
 const axios = require('axios')
 
 const DING_TALK_TOKEN_EXPIRE = 7200000
-const DING_TALK_APP_ID = process.env.DING_TALK_APP_ID
-const DING_TALK_APP_SECRET = process.env.DING_TALK_APP_SECRET
 
 class DingTalkApi {
   constructor() {
@@ -12,7 +10,7 @@ class DingTalkApi {
     this.openAuthMap = {}
   }
 
-  async getAccessToken() {
+  async getAccessToken(appid, appsecret) {
     const currentTimestamp = Date.now()
     if (this.accessToken && currentTimestamp - this.lastModify < DING_TALK_TOKEN_EXPIRE) {
       return this.accessToken
@@ -21,8 +19,8 @@ class DingTalkApi {
     try {
       let response = await axios.get('https://oapi.dingtalk.com/sns/gettoken', {
         params: {
-          appid: DING_TALK_APP_ID,
-          appsecret: DING_TALK_APP_SECRET,
+          appid: appid,
+          appsecret: appsecret,
         }
       })
 
