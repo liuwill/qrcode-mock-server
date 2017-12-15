@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-// import cx from 'classnames'
+import cx from 'classnames'
 import { Modal, Header, Button, List } from 'semantic-ui-react'
 // import CommonStyle from '../styles/common.scss'
 import IndexStyle from '../styles/index.scss'
@@ -16,14 +16,9 @@ export default class extends React.Component {
   }
 
   render () {
+    console.log(IndexStyle)
     return <div>
-    <Head>
-      <meta name='viewport' content='width=device-width, initial-scale=1' />
-      <meta charSet='utf-8' />
-      <link rel='stylesheet' href='/static/styles/semantic.min.css' />
-      {/* <style dangerouslySetInnerHTML={{ __html: CommonStyle }} /> */}
-    </Head>
-      <div className={IndexStyle.main}>
+      <div className={cx(IndexStyle.main)}>
         Hello World!
         <p>{this.props.secret}</p>
         <p>{this.props.userAgent}</p>
