@@ -26,7 +26,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               // CSS Loader https://github.com/webpack/css-loader
-              importLoaders: 1,
+              importLoaders: 2,
               sourceMap: isDebug,
               // CSS Modules https://github.com/css-modules/css-modules
               modules: true,
