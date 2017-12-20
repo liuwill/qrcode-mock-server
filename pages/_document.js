@@ -1,4 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document'
+import CommonStyle from '../styles/common.scss'
 
 class MyDocument extends Document {
   render() {
