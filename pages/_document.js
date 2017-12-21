@@ -14,7 +14,7 @@ class MyDocument extends Document {
             <link rel='stylesheet' href='/static/css/bundle.css' />
             {/* <style dangerouslySetInnerHTML={{ __html: CommonStyle }} /> */}
           </Head>
-          <body>
+          <body className={CommonStyle['demo-body']}>
             <Main />
             <NextScript />
           </body>

@@ -1,15 +1,16 @@
 .main {
-  width: 100%;
+  width: 720px;
   height: 100%;
+  margin: auto;
+  margin-top: 20px;
 }
 .nav {
-  height: 60px;
-  line-height: 60px;
-  background: #fff;
-  box-shadow: 2px 1px 16px #ccc;
+  margin: 0 90px;
+  box-sizing: border-box;
 }
 .content {
-
+  padding-top: 40px;
+  box-sizing: border-box;
 }
 
 .text-center {

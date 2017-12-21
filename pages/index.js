@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 // import cx from 'classnames'
-import { Modal, Header, Button, List } from 'semantic-ui-react'
+import { Menu, Segment } from 'semantic-ui-react'
 // import CommonStyle from '../styles/common.scss'
 import IndexStyle from '../styles/index.scss'
 
@@ -17,11 +17,14 @@ export default class extends React.Component {
 
   render () {
     console.log(IndexStyle)
-    return <div>
-      <div className={IndexStyle.main}>
-        Hello World!
-        <p>{this.props.secret}</p>
-        <p>{this.props.userAgent}</p>
+    return <div className={IndexStyle['main']}>
+      <div className={IndexStyle.nav}>
+        <div className={IndexStyle['nav-logo']}>
+
+        </div>
+      </div>
+      <div className={IndexStyle.content}>
+        <div></div>
       </div>
     </div>
   }
