@@ -5,5 +5,5 @@ yarn-error.log
 .vscode
 .env
 now.json
-static/css
+static/assets
 styles/*.json

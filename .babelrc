@@ -5,7 +5,7 @@
       "css-modules-transform", {
         "extensions": [".css", ".sass", ".scss"],
         "append": [ "postcss-cssnext" ],
-        "extractCss": "./static/css/bundle.css"
+        "extractCss": "./static/assets/bundle.css"
       }
     ]
   ]
