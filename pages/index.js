@@ -22,6 +22,11 @@ export default class extends React.Component {
         <div className={IndexStyle['nav-logo']}>
 
         </div>
+        <div className={IndexStyle['nav-menu']}>
+          <div className={IndexStyle['menu-item']}>
+            <a>扫码</a>
+          </div>
+        </div>
       </div>
       <div className={IndexStyle.content}>
         <div></div>
